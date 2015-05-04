@@ -1,0 +1,18 @@
+README
+
+create_vcf_and_annotate_from_novoalign.sh uses NGS files aligned using novoalign to produce a table with mutations, with annotated genes. A pileup file is first created using SAMTOOLS. Annovar is then used to produce a variant allele frequency file, which is annotated and mutations are cross-refereced to known polymorphisms using different databases. 
+
+Ensures mutations only past if found in a minimum of 20 reads.
+
+
+
+To submit JOB to SGE:
+Submit variant allele caller to SGE as qsub command. 
+
+submit example
+qsub -pe 2 create_vcf_and_annotate_from_novoalign $1 $2
+
+Programs required:
+SAMTOOLS
+Annovar
+annotate_variation.pl
