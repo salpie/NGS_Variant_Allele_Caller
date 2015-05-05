@@ -46,12 +46,12 @@ awk 'BEGIN {FS=OFS="\t"} {if ((substr($1,0,6) != "exonic") && ($1 != "splicing")
 awk 'BEGIN {FS=OFS="\t"} {print $4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$2,$3}' $1_$2_1.annovar.exonic_variant_function >> $1_$2_2.annovar  
 
 # cross reference with dbSNP141
-/home/exome/bin/annotate_variation.pl --buildver hg19 --filter  -dbtype generic -genericdbfile dbSNP134a.annovar $1_$2_2.annovar /path...to...dbSNP141/
+annotate_variation.pl --buildver hg19 --filter  -dbtype generic -genericdbfile dbSNP141.annovar $1_$2_2.annovar /path...to...dbSNP141/
 awk 'BEGIN {FS=OFS="\t"} {print $3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$2}' $1_$2_2.annovar.hg19_generic_dropped > $1_$2_3.annovar
 awk 'BEGIN {FS=OFS="\t"} {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,"."}' $1_$2_2.annovar.hg19_generic_filtered >> $1_$2_3.annovar
 
 # cross reference with 1000g
-/home/exome/bin/annotate_variation.pl --buildver hg19 -filter -dbtype generic -genericdbfile 1KG_2011_10.annovar $1_$2_3.annovar /path...to...1000g/
+annotate_variation.pl --buildver hg19 -filter -dbtype generic -genericdbfile 1KG_2011_10.annovar $1_$2_3.annovar /path...to...1000g/
 
 # rejig format back to input format
 awk 'BEGIN {FS=OFS="\t"} {print $3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$2}' $1_$2_3.annovar.hg19_generic_dropped > $1_$2_4.annovar
