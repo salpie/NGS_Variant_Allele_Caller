@@ -15,3 +15,5 @@ Programs required:
 SAMTOOLS
 Annovar
 annotate_variation.pl
+
+Download references from Annovar - 1000G and dbSNP 141
